@@ -27,9 +27,6 @@ def otsu_segment(img,sigma=1):
   # create a binary mask with the threshold found by Otsu's method
   binary_mask = blurred_image > t
 
-  fig, ax = plt.subplots()
-  plt.imshow(binary_mask, cmap="gray")
-  plt.title('Your img mask')
   # apply the binary mask to select the foreground
   selection = img.copy()
   selection[~binary_mask] = 0
@@ -50,7 +47,6 @@ def otsu_segment(img,sigma=1):
   # Draw polygon around the marker
   int_corners = np.int0(corners)
   cv2.polylines(image, int_corners, True, (0, 255, 0), 50)
-  plt.imshow(image)
   # Aruco Area
   aruco_area = cv2.contourArea (corners[0])
   print('AruCo Area:',aruco_area, 'px')
