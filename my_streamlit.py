@@ -14,6 +14,7 @@ import imutils
 from skimage import io, filters, feature
 import cv2
 import streamlit as st
+import numpy as np
 
 
 def otsu_segment(img,sigma=1):
