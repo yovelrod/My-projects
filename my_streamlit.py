@@ -147,7 +147,7 @@ if app_mode == 'Segment an Image':
     )
 
 # choosing a sigma value (either with +- or with a slider)
-sigma_value = st.sidebar.number_input('Insert Sigma value', value=1, min_value = 0.1) # asks for input from the user
+sigma_value = st.sidebar.number_input('Insert Sigma value', value=1, min_value = 1) # asks for input from the user
 st.sidebar.markdown('---') # adds a devider (a line)
     
 # read an image from the user
