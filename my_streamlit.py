@@ -63,7 +63,9 @@ def otsu_segment(img,sigma=1):
   seg_count = np.sum(np.array(selection) >t)
   
   print('Area:',seg_count*pixel_cm_ratio, 'cm\N{SUPERSCRIPT TWO},', 'which is:',  f'{0.0001*seg_area*pixel_cm_ratio:.3f}', 'm\N{SUPERSCRIPT TWO}')
-
+# vars
+DEMO_IMAGE = 'demo.png' # a demo image for the segmentation page, if none is uploaded
+favicon = 'favicon.png'
 # main page
 st.set_page_config(page_title='Otsu Segmentaion - Yovel Rodoy', page_icon = favicon, layout = 'wide', initial_sidebar_state = 'auto')
 st.title('Otsu Segmentaion - By Yovel Rodoy')
