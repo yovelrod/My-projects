@@ -13,7 +13,7 @@ from skimage import img_as_ubyte
 import imutils
 from skimage import io, filters, feature
 import cv2
-!pip install opencv-contrib-python
+
 
 def otsu_segment(img,sigma=1):
 # Convert the Original image to grayscale:
