@@ -32,34 +32,7 @@ def otsu_segment(img,sigma=1):
   selection = img.copy()
   selection[~binary_mask] = 0
 
-  # detect contours in the mask and grab the largest one — this contour will represent the outline/boundary of a given object in the image.
-  cnts = cv2.findContours(img_as_ubyte(binary_mask), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
-  cnts = imutils.grab_contours(cnts)
-  c = max(cnts, key=cv2.contourArea)
-  total_area = []
-  # calc area and append to list
-  area = cv2.contourArea(c)
-  total_area.append(area)
-  # Load Aruco detector
-  parameters = cv2.aruco.DetectorParameters_create()
-  aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_5X5_50)
-  # Get Aruco marker
-  corners, _, _ = cv2.aruco.detectMarkers(image, aruco_dict, parameters=parameters)
-  # Draw polygon around the marker
-  int_corners = np.int0(corners)
-  cv2.polylines(image, int_corners, True, (0, 255, 0), 50)
-  # Aruco Area
-  aruco_area = cv2.contourArea (corners[0])
-  print('AruCo Area:',aruco_area, 'px')
-
-  # Pixel to cm ratio
-  pixel_cm_ratio = 5*5 / aruco_area# since the AruCo is 5*5 cm, so we devide 25 cm*cm by the number of pixels
-  print('Ratio - Each pixel is',pixel_cm_ratio, 'cm*cm')
-  
-  # count how many pixels are in the foreground and bg
-  seg_count = np.sum(np.array(selection) >t)
-  
-  print('Area:',seg_count*pixel_cm_ratio, 'cm\N{SUPERSCRIPT TWO},', 'which is:',  f'{0.0001*seg_area*pixel_cm_ratio:.3f}', 'm\N{SUPERSCRIPT TWO}')
+ 
 # vars
 DEMO_IMAGE = 'demo.jpg' # a demo image for the segmentation page, if none is uploaded
 favicon = 'favicon.png'
