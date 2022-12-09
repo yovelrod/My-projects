@@ -32,7 +32,8 @@ def otsu_segment(img,sigma=1):
   # apply the binary mask to select the foreground
     selection = img.copy()
     selection[~binary_mask] = 0
- 
+    segmented_image= selection[~binary_mask] = 0
+    return segmented_image
 # vars
 DEMO_IMAGE = 'demo.jpg' # a demo image for the segmentation page, if none is uploaded
 favicon = 'favicon.png'
