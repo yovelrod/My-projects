@@ -133,3 +133,5 @@ else: # if no image was uploaded, then segment the demo image
 st.sidebar.text('Original Image')
 st.sidebar.image(image)
 
+# call the function to segment the image
+segmented_image = otsu_segment(image, sigma=sigma_value)
