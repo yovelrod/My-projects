@@ -16,22 +16,6 @@ import cv2
 import streamlit as st
 import numpy as np
 
-def otsu_segment(img,sigma=1):
-# Convert the Original image to grayscale:
-  gray_image = skimage.color.rgb2gray(img.copy())
-  # blur the image to denoise
-  sigma=1
-  blurred_image = skimage.filters.gaussian(gray_image, sigma)
-  # perform automatic thresholding
-  t = skimage.filters.threshold_otsu(blurred_image)
-  # create a binary mask with the threshold found by Otsu's method
-  binary_mask = blurred_image > t
-
-  
-  # apply the binary mask to select the foreground
-  selection = img.copy()
-  selection[~binary_mask] = 0
-  
  
  
 # vars
@@ -134,9 +118,4 @@ else: # if no image was uploaded, then segment the demo image
 st.sidebar.text('Original Image')
 st.sidebar.image(image)
 
-# call the function to segment the image
-segmented_image = otsu_segment(image, sigma=sigma_value)
 
-# Display the result on the right (main frame)
-st.subheader('Output Image')
-st.image(segmented_image, use_column_width=True)
