@@ -119,7 +119,7 @@ st.sidebar.text('Original Image')
 st.sidebar.image(image)
 
 # call the function to segment the image
-segmented_image = otsu_segment(image, sigma=sigma_value)
+
 
 # Display the result on the right (main frame)
 st.subheader('Output Image')
