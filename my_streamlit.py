@@ -123,4 +123,4 @@ st.sidebar.image(image)
 
 # Display the result on the right (main frame)
 st.subheader('Output Image')
-st.image(segmented_image, use_column_width=True)
+
