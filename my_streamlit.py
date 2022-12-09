@@ -28,12 +28,10 @@ def otsu_segment(img,sigma=1):
   binary_mask = blurred_image > t
 
   
-  plt.imshow(binary_mask, cmap="gray")
-  plt.title('Your img mask')
   # apply the binary mask to select the foreground
   selection = img.copy()
   selection[~binary_mask] = 0
-  plt.imshow(selection)
+  
  
  
 # vars
