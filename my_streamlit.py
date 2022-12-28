@@ -33,7 +33,7 @@ def otsu_segment(img,sigma=1):
     selection = img.copy()
     selection[~binary_mask] = 0
     segmented_image= selection[~binary_mask] = 0
-    return segmented_image
+    return selection
 # vars
 DEMO_IMAGE = 'demo.jpg' # a demo image for the segmentation page, if none is uploaded
 favicon = 'favicon.png'
